@@ -1,14 +1,23 @@
 name: Orders API CI
 
-on: push: branches: - main pull_request: branches: - main
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
-permissions: contents: read
+permissions:
+  contents: read
 
-jobs: test: name: Python Tests runs-on: ubuntu-latest
-
-steps:
-  - name: Checkout source code
-    uses: actions/checkout@v4
+jobs:
+  test:
+    name: Python Tests
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout source code
+        uses: actions/checkout@v4
 
   - name: Set up Python
     uses: actions/setup-python@v5
